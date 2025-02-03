@@ -3,7 +3,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 
 // Initialize Firebase Admin
-const serviceAccount = require("./amshop-61d4a-firebase-adminsdk-fbsvc-a056cfbef0.json");
+const serviceAccount = require("./serviceAccountKey.json"); //ชื่อไฟล์ไฟล์ json ของเรา
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -36,4 +36,4 @@ const uploadCsvToFirestore = async (csvFilePath, collectionName) => {
 };
 
 // เรียกใช้ฟังก์ชัน
-uploadCsvToFirestore("AM.csv", "amShopDB"); // แทน "data.csv" ด้วยชื่อไฟล์ของคุณ และ "users" ด้วยชื่อ collection ที่ต้องการ
+uploadCsvToFirestore("data.csv", "amShopDB"); // แทน "data.csv" ด้วยชื่อไฟล์ของคุณ และ "amShopDB" ด้วยชื่อ collection ที่ต้องการ
